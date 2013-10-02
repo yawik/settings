@@ -11,47 +11,18 @@
 namespace Settings\Entity;
 use Core\Entity\EntityResolverStrategyInterface;
 
-class Settings extends AwareEntity implements SettingsInterface, EntityResolverStrategyInterface {
-
+class Settings extends SettingsAbstract {
+    
     /**
-     * die Setting-Entity consists of Namespaces, which can 
-     * subsequently be adressed
-     * @param string $nameSpace
-     * @return Settings\Entity\Settings
+     * 
+     * @return date
      */
-    public function get($nameSpace) {
-        if (isset($this->data)) {
-            if (isset($this->data[$nameSpace])) {
-                if ($this->spawnsAsEntities) {
-                    if (!$this->data[$nameSpace] instanceof $this) {
-                        // transform array into the Entity-Class
-                        if ($this instanceOf EntityResolverStrategyInterface) {
-                            $entity = $this->getEntityByStrategy($nameSpace);
-                        }
-                        
-                        if (!isset($entity)) {
-                            $entity = new static($this);
-                        }
-                        $entity->setData($this->data[$nameSpace]);
-                        $this->data[$nameSpace] = $entity;
-                    }
-                }
-                return $this->data[$nameSpace];
-            } else {
-                // create a new entity
-                $this->data[$nameSpace] = new static($this);
-                return $this->data[$nameSpace];
-            }
-        }
-        // the Entity is empty
-        return Null;
-    }
-
-    public function getEntityByStrategy($nameSpace) {
-        if ($this->getParent() instanceOf EntityResolverStrategyInterface) {
-            return $this->getParent()->getEntityByStrategy($nameSpace);
-        }
-        return Null;
+    public function getLanguage() {
+        return $this->language;
     }
     
+    public function setLanguage($name) {
+        $this->language = $name;
+        return;
+    }
 }
