@@ -148,7 +148,6 @@ class SettingsContainer implements SettingsContainerInterface
         }
         
         return $this->get($property);
-        
     }
 
     /**

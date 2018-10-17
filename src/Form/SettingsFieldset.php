@@ -45,7 +45,6 @@ class SettingsFieldset extends Fieldset
     
     public function build()
     {
-        
         if ($this->isBuild) {
             return;
         }
@@ -74,10 +73,10 @@ class SettingsFieldset extends Fieldset
 
             $inputLabel = isset($this->labelMap[$inputName]) ? $this->labelMap[$inputName] : $inputName;
 
-            if (is_array($inputLabel)){
+            if (is_array($inputLabel)) {
                 $priority = isset($inputLabel[1])?$inputLabel[1]:0;
                 $inputLabel = $inputLabel[0];
-            }else{
+            } else {
                 $priority = 0;
             }
 
@@ -94,8 +93,7 @@ class SettingsFieldset extends Fieldset
             } else {
                 $input['attributes']['value'] = $value;
             }
-            $this->add($input,['priority'=>$priority]);
-            
+            $this->add($input, ['priority'=>$priority]);
         }
         
         foreach ($children as $name => $child) {

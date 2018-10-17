@@ -108,7 +108,6 @@ class DisableElementsCapableFormSettings extends Element implements ViewHelperPr
      */
     protected function setCheckboxesAttributes($value, $checkboxes)
     {
-
         foreach ($value as $name => $spec) {
             if (is_numeric($spec)) {
                 $spec = $name;
@@ -167,7 +166,7 @@ class DisableElementsCapableFormSettings extends Element implements ViewHelperPr
             'required' => true,
             'filters'  => array(
                 array(
-                	'name' => \Settings\Form\Filter\DisableElementsCapableFormSettings::class,
+                    'name' => \Settings\Form\Filter\DisableElementsCapableFormSettings::class,
                 ),
             ),
         );

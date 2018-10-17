@@ -37,7 +37,6 @@ class ModuleSettingsContainer extends SettingsContainer implements ModuleSetting
         } else {
             throw new \InvalidArgumentException('Module name is immutable, once it is set.');
         }
-
     }
     
     public function getModuleName()
@@ -59,6 +58,5 @@ class ModuleSettingsContainer extends SettingsContainer implements ModuleSetting
         return false === strpos($namespace, 'Settings\\')
                ? substr($namespace, 0, strpos($namespace, '\\'))
                : null;
-
     }
 }

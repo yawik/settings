@@ -19,7 +19,6 @@ use Zend\Hydrator\Strategy\StrategyInterface;
  */
 class DisableElementsCapableFormSettings implements StrategyInterface
 {
-
     public function extract($value)
     {
         $value = $this->filterArrayStrings($value, '#dot#', '.');

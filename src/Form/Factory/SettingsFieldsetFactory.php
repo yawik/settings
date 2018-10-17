@@ -16,10 +16,10 @@ use Zend\ServiceManager\Factory\FactoryInterface;
 
 /**
  * Factory for \Settings\Form\SettingsFieldset
- * 
+ *
  * @author Mathias Gelhausen <gelhausen@cross-solution.de>
  * @since 0.30
- * @todo write test  
+ * @todo write test
  */
 class SettingsFieldsetFactory implements FactoryInterface
 {
@@ -27,8 +27,8 @@ class SettingsFieldsetFactory implements FactoryInterface
     {
         /* @var SettingsFieldset $ob */
         $class = class_exists($requestedName) ? $requestedName : SettingsFieldset::class;
-    	$ob = new $class($container->get('FormElementManager'));
-    	$ob->setName($requestedName);
+        $ob = new $class($container->get('FormElementManager'));
+        $ob->setName($requestedName);
         return $ob;
     }
 }

@@ -39,7 +39,6 @@ class FormDisableElementsCapableFormSettings extends FormInput
         return '<ul class="disable-elements-list" id="' . $element->getAttribute('id') . '-list"' . '>'
                . $this->renderCheckboxes($element->getCheckboxes())
                . '</ul>';
-
     }
 
     /**
