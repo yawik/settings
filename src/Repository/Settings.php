@@ -13,7 +13,6 @@ use Core\Repository\AbstractRepository;
 
 class Settings extends AbstractRepository implements EntityResolverStrategyInterface
 {
-    
     protected $userRepository;
     protected $settingsByUser;
     protected $serviceLocator;
@@ -86,10 +85,11 @@ class Settings extends AbstractRepository implements EntityResolverStrategyInter
             }
         }
     }
-	
-	public function find( $user, $lockMode = LockMode::NONE, $lockVersion = null ) {
-		return $this->getSettingsByUser($user);
-	}
+    
+    public function find($user, $lockMode = LockMode::NONE, $lockVersion = null)
+    {
+        return $this->getSettingsByUser($user);
+    }
     
     public function getEntityByStrategy($namespace)
     {

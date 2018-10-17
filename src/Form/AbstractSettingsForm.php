@@ -25,28 +25,27 @@ class AbstractSettingsForm extends Form
      * @var bool
      */
     protected $isBuild = false;
-	
-	/**
-	 * @var FormElementManager
-	 */
+    
+    /**
+     * @var FormElementManager
+     */
     protected $formManager;
-	
-	/**
-	 * @var array|HelperPluginManager
-	 */
+    
+    /**
+     * @var array|HelperPluginManager
+     */
     protected $viewHelper;
-	
-	/**
-	 * AbstractSettingsForm constructor.
-	 *
-	 * @param FormElementManager $formManager
-	 * @param HelperPluginManager $viewHelper
-	 */
+    
+    /**
+     * AbstractSettingsForm constructor.
+     *
+     * @param FormElementManager $formManager
+     * @param HelperPluginManager $viewHelper
+     */
     public function __construct(
-    	FormElementManager $formManager,
-	    HelperPluginManager $viewHelper
-    )
-    {
+        FormElementManager $formManager,
+        HelperPluginManager $viewHelper
+    ) {
         parent::__construct();
         $this->formManager = $formManager;
         $this->viewHelper = $viewHelper;
@@ -87,7 +86,7 @@ class AbstractSettingsForm extends Form
         $this->add($fieldset);
         
         $this->add([
-        	'type' => 'DefaultButtonsFieldset'
+            'type' => 'DefaultButtonsFieldset'
         ]);
         $this->isBuild=true;
     }
@@ -131,17 +130,17 @@ class AbstractSettingsForm extends Form
 
         return strtolower($moduleName);
     }
-	
-	/**
-	 * @param ContainerInterface $container
-	 *
-	 * @return AbstractSettingsForm
-	 */
+    
+    /**
+     * @param ContainerInterface $container
+     *
+     * @return AbstractSettingsForm
+     */
     public static function factory(ContainerInterface $container)
     {
         return new static(
-        	$container->get('FormElementManager'),
-	        $container->get('ViewHelperManager')
+            $container->get('FormElementManager'),
+            $container->get('ViewHelperManager')
         );
     }
 }

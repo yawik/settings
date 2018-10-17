@@ -74,7 +74,6 @@ class DisableElementsCapableFormSettingsFieldset extends Fieldset
      */
     public function build()
     {
-        
         if ($this->isBuild) {
             return;
         }
@@ -108,12 +107,12 @@ class DisableElementsCapableFormSettingsFieldset extends Fieldset
 
         $this->isBuild = true;
     }
-	
-	/**
-	 * @param ContainerInterface $container
-	 *
-	 * @return DisableElementsCapableFormSettingsFieldset
-	 */
+    
+    /**
+     * @param ContainerInterface $container
+     *
+     * @return DisableElementsCapableFormSettingsFieldset
+     */
     public static function factory(ContainerInterface $container)
     {
         return new static($container->get('FormElementManager'));

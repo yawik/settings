@@ -29,7 +29,7 @@ class Module
      */
     public function onBootstrap(MvcEvent $e)
     {
-    	// we attach with wildcard events name
+        // we attach with wildcard events name
         $events = $e->getApplication()->getEventManager();
         $events->attach(
             MvcEvent::EVENT_RENDER,
@@ -45,22 +45,6 @@ class Module
      */
     public function getConfig()
     {
-        return include __DIR__ . '/config/module.config.php';
-    }
-
-    /**
-     * Loads module specific autoloader configuration.
-     *
-     * @return array
-     */
-    public function getAutoloaderConfig()
-    {
-        return array(
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                ),
-            ),
-        );
+        return include __DIR__ . '/../config/module.config.php';
     }
 }

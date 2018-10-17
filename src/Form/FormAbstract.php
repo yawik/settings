@@ -19,7 +19,7 @@ abstract class FormAbstract extends Form
         parent::__construct('settings');
         $this->formManager = $formManager;
         $this->setAttribute('method', 'post');
-                $this->setBindOnValidate(Form::BIND_ON_VALIDATE);
+        $this->setBindOnValidate(Form::BIND_ON_VALIDATE);
     }
 
     public function getHydrator()
@@ -48,7 +48,6 @@ abstract class FormAbstract extends Form
 
     public function init()
     {
-
         $this->setName('setting-core');
         
         $pluginUrl = $this->getPlugin('url');

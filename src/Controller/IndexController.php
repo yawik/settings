@@ -28,39 +28,38 @@ use Zend\Form\FormElementManager\FormElementManagerV3Polyfill as FormElementMana
  */
 class IndexController extends AbstractActionController
 {
-	/**
-	 * @var TranslatorInterface
-	 */
-	private $translator;
-	
-	/**
-	 * @var FormElementManager
-	 */
-	private $formManager;
-	
-	private $viewHelper;
-	
-	public function __construct(
-		TranslatorInterface $translator,
-		FormElementManager $formManager,
-		$viewHelper
-	)
-	{
-		$this->translator = $translator;
-		$this->formManager = $formManager;
-		$this->viewHelper = $viewHelper;
-	}
-	
-	static public function factory(ContainerInterface $container)
-	{
-		$translator = $container->get('translator');
-		return new self(
-			$translator,
-			$container->get('FormElementManager'),
-			$container->get('ViewHelperManager')
-		);
-	}
-	
+    /**
+     * @var TranslatorInterface
+     */
+    private $translator;
+    
+    /**
+     * @var FormElementManager
+     */
+    private $formManager;
+    
+    private $viewHelper;
+    
+    public function __construct(
+        TranslatorInterface $translator,
+        FormElementManager $formManager,
+        $viewHelper
+    ) {
+        $this->translator = $translator;
+        $this->formManager = $formManager;
+        $this->viewHelper = $viewHelper;
+    }
+    
+    public static function factory(ContainerInterface $container)
+    {
+        $translator = $container->get('translator');
+        return new self(
+            $translator,
+            $container->get('FormElementManager'),
+            $container->get('ViewHelperManager')
+        );
+    }
+    
     public function indexAction()
     {
         $translator = $this->translator;
@@ -99,8 +98,8 @@ class IndexController extends AbstractActionController
         
         $form = $formManager->get($formName);
         
-	    $vars = array();
-	    $vars['form'] = $form;
+        $vars = array();
+        $vars['form'] = $form;
         // Binding the Entity to the Formular
         $form->bind($settings);
         $data = $this->getRequest()->getPost();
@@ -119,8 +118,8 @@ class IndexController extends AbstractActionController
                     $this,
                     array('settings' => $settings)
                 );
-                $this->getEventManager()->trigger($event->getName(),$event);
-	            $vars['valid'] = true;
+                $this->getEventManager()->trigger($event->getName(), $event);
+                $vars['valid'] = true;
             } else {
                 $vars['error'] = $form->getMessages();
             }
